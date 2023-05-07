@@ -1,9 +1,7 @@
 package com.example.connectfour;
 
-import java.io.InputStream;
 import java.util.*;
 import javafx.animation.PauseTransition;
-import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -13,7 +11,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -39,8 +36,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
 public class Main extends Application {
-    final int boardBackgound = 2;
-    final int font = 3;
+    final int boardBackground = 2;
     final int winingBackground = 4;
     final int WIDTH = 900;
     final int HEIGHT = 600;
@@ -52,19 +48,19 @@ public class Main extends Application {
             "Player Two's Turn"
     };
     GameButton button;
-    Map< Integer, GameButton > map = new HashMap< Integer, GameButton >();
-    Stack< Integer > stack = new Stack < Integer > ();
+    Map< Integer, GameButton > map = new HashMap<>();
+    Stack< Integer > stack = new Stack<>();
     // Create border pane that will hold all elements of the Game Scene, background is updated with theme
     BorderPane borderPane = new BorderPane();
-    // Text Box that will show who's next
+    // Text Box that will show who is next
     Text playerText = new Text("");
-    // Show image of player who's next
+    // Show image of player who is next
     Circle circleImage = new Circle(75, 75, 45);
     // Text Box that shows the moves
     Text movesText = new Text("");
     // Holds the images and background of each theme
-    Map < String, String[] > themeMap = new HashMap < String, String[] > ();
-    Set< Integer > winningButtons = new HashSet< Integer >();
+    Map < String, String[] > themeMap = new HashMap<>();
+    Set< Integer > winningButtons = new HashSet<>();
     HashMap < String, Scene > sceneMap;
     StackPane itemStart;
     Button playButton = new Button("Play Again");
@@ -75,13 +71,13 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         // This HashMap will hold all the scenes
-        sceneMap = new HashMap < String, Scene > ();
+        sceneMap = new HashMap<>();
         primaryStage.setTitle("Connect Four");
 
         //this handler is used by all the game buttons
-        myHandler = new EventHandler < ActionEvent > () {
+        myHandler = new EventHandler<>() {
             public void handle(ActionEvent e) {
                 //System.out.println("Clicked a button");
                 GameButton temp = (GameButton) e.getSource();
@@ -96,7 +92,7 @@ public class Main extends Application {
                     movesText.setEffect(new DropShadow(+25d, 0d, +2d, Color.BLACK));
 
                     // Update the button
-                    temp.click(player, new Image(getClass().getResourceAsStream(themeMap.get(theme)[player])));
+                    temp.click(player, new Image(Objects.requireNonNull(getClass().getResourceAsStream(themeMap.get(theme)[player]))));
                     if (checkWin(temp.getID())) { // Check if recent move connected 4
                         // clear all buttons except winning buttons
                         map.forEach((k, v) -> {
@@ -109,7 +105,8 @@ public class Main extends Application {
                         PauseTransition pause = new PauseTransition(Duration.seconds(3));
                         pause.play();
                         pause.setOnFinished((v) -> primaryStage.setScene(sceneMap.get("win")));
-                    } else if (stack.size() == 42) { // If all the buttons have been pressed, the stack has 42 buttons and it is a tie
+                    } else if (stack.size() == 42) {
+                        // If all the buttons have been pressed, the stack has 42 buttons, and it is a tie
                         win = false;
                         sceneMap.put("win", winScene());
                         PauseTransition pause = new PauseTransition(Duration.seconds(3));
@@ -122,7 +119,7 @@ public class Main extends Application {
                     movesText.setText("Player " + (player + 1) + " moved to " + (temp.getX() + 1) + "," + (temp.getY() + 1) + ". This is NOT a valid move. Player " + (player + 1) + " pick again.");
                 }
             }
-        };;
+        };
 
         //Three scenes returned from two methods; put in hashmap
         sceneMap.put("welcome", welcome());
@@ -149,7 +146,7 @@ public class Main extends Application {
         VBox titleBox = new VBox(20, title);
         titleBox.setAlignment(Pos.CENTER);
         title.setFont(Font.loadFont(
-                Main.class.getResource("sf-distant-galaxy.outline.ttf").toExternalForm(), 58));
+                Objects.requireNonNull(Main.class.getResource("sf-distant-galaxy.outline.ttf")).toExternalForm(), 58));
 
         // Create menu box to put start and exit items
         // Menu button should be added to border pane at center
@@ -202,7 +199,7 @@ public class Main extends Application {
 
         // Create text for menu items
         Text startText = new Text("Start Game");
-        startText.setFont(Font.loadFont(Main.class.getResource("sfdistantgalaxy.ttf").toExternalForm(), 20));
+        startText.setFont(Font.loadFont(Objects.requireNonNull(Main.class.getResource("sfdistantgalaxy.ttf")).toExternalForm(), 20));
         startText.fillProperty().bind(Bindings.when(itemStart.hoverProperty())
                 .then(Color.BLACK)
                 .otherwise(Color.WHITE));
@@ -210,7 +207,7 @@ public class Main extends Application {
         Text exitText = new Text("Exit Game");
         exitText.setTranslateX(-10);
         exitText.setTranslateY(-30);
-        exitText.setFont(Font.loadFont(Main.class.getResource("sfdistantgalaxy.ttf").toExternalForm(), 20));
+        exitText.setFont(Font.loadFont(Objects.requireNonNull(Main.class.getResource("sfdistantgalaxy.ttf")).toExternalForm(), 20));
         exitText.fillProperty().bind(Bindings.when(itemExit.hoverProperty())
                 .then(Color.BLACK)
                 .otherwise(Color.WHITE));
@@ -236,18 +233,16 @@ public class Main extends Application {
 
 
         // Exit menu item closes the game
-        itemExit.setOnMouseClicked(e -> {
-            Platform.exit();
-        });
+        itemExit.setOnMouseClicked(e -> Platform.exit());
 
-        Scene scene = new Scene(borderPane, WIDTH, HEIGHT);
-        return scene;
+        //Scene scene = new Scene(borderPane, WIDTH, HEIGHT);
+        return new Scene(borderPane, WIDTH, HEIGHT);
     }
 
-    // This is the scene that will include the Connect 4 board
+    // This is the scene that will include the "Connect 4" board
     public Scene gameplay() {
         loadThemes();
-        circleImage.setFill(new ImagePattern(new Image(getClass().getResourceAsStream(themeMap.get(theme)[player]))));
+        circleImage.setFill(new ImagePattern(new Image(Objects.requireNonNull(getClass().getResourceAsStream(themeMap.get(theme)[player])))));
         circleImage.setEffect(new DropShadow(+25d, 0d, +2d, Color.BLACK));
 
         playerText.setText(playerString[player]);
@@ -272,8 +267,8 @@ public class Main extends Application {
         for (int x = 0; x < 7; x++) {
             for (int y = 0; y < 6; y++) {
                 button = new GameButton();
-                String id = String.valueOf(x) + String.valueOf(y);
-                button.setID(Integer.valueOf(id));
+                String id = x + String.valueOf(y);
+                button.setID(Integer.parseInt(id));
                 button.setX(x);
                 button.setY(y);
                 button.setOnAction(myHandler);
@@ -284,12 +279,12 @@ public class Main extends Application {
         gridPane.setAlignment(Pos.CENTER);
         gridPane.setMaxSize(500, 470);
         borderPane.setCenter(gridPane);
-        borderPane.setStyle("-fx-background-image: url('" + getClass().getResource(themeMap.get(theme)[boardBackgound]).toExternalForm() + "');"
+        borderPane.setStyle("-fx-background-image: url('" + Objects.requireNonNull(getClass().getResource(themeMap.get(theme)[boardBackground])).toExternalForm() + "');"
                 + "-fx-background-size: cover;"
                 + "-fx-background-position: center center;");
 
-        Scene scene = new Scene(borderPane, WIDTH, HEIGHT);
-        return scene;
+        //Scene scene = new Scene(borderPane, WIDTH, HEIGHT);
+        return new Scene(borderPane, WIDTH, HEIGHT);
     }
     // This scene is called when someone wins or the game
     // comes to tie and will let the user exit or play again
@@ -298,7 +293,7 @@ public class Main extends Application {
         // Create a borderpane to hold all the buttons and update
         // the background of the borderpane
         BorderPane winBorderPane = new BorderPane();
-        winBorderPane.setStyle("-fx-background-image: url('" + getClass().getResource(themeMap.get(theme)[boardBackgound]).toExternalForm() + "');"
+        winBorderPane.setStyle("-fx-background-image: url('" + Objects.requireNonNull(getClass().getResource(themeMap.get(theme)[winingBackground])).toExternalForm() + "');"
                 + "-fx-background-repeat: no-repeat;"
                 + "-fx-background-position: center center;");
 //        winBorderPane.setStyle("-fx-background-image: url(" + themeMap.get(theme)[winingBackground] + ");" + "-fx-background-size: stretch;" +
@@ -327,9 +322,7 @@ public class Main extends Application {
         playButton.setStyle("-fx-font-size: 18px;" + "-fx-font-family: 'Roboto';" + "-fx-background-color: black;" + "-fx-text-fill: white;");
         exitButton.setStyle("-fx-font-size: 18px;" + "-fx-font-family: 'Roboto';" + "-fx-background-color: black;" + "-fx-text-fill: white;");
         // Event handler when the exit button gets clicked
-        exitButton.setOnAction(e -> {
-            Platform.exit();
-        });
+        exitButton.setOnAction(e -> Platform.exit());
         // Horizontal box to hold both of the buttons
         HBox buttonBox = new HBox();
         buttonBox.setAlignment(Pos.CENTER);
@@ -340,7 +333,7 @@ public class Main extends Application {
         box.setAlignment(Pos.CENTER);
         box.getChildren().addAll(stp, buttonBox);
         box.setSpacing(10);
-        // Create the scence and put the box in center
+        // Create the scene and put the box in center
         winBorderPane.setCenter(box);
         Scene scene = new Scene(winBorderPane, WIDTH, HEIGHT);
         scene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Roboto");
@@ -354,12 +347,12 @@ public class Main extends Application {
             return true;
         }
         winningButtons.clear();
-        // check diag. right
+        // check diagonal to the right
         if (checkNeighbors(id, -9) + checkNeighbors(id + 9, 9) >= 4) {
             return true;
         }
         winningButtons.clear();
-        // check diag. left
+        // check diagonal to the left
         if (checkNeighbors(id, -11) + checkNeighbors(id + 11, 11) >= 4) {
             return true;
         }
@@ -417,7 +410,7 @@ public class Main extends Application {
         return menuBttn;
     }
 
-    // This method will create the menu that is on top of the connect 4
+    // This method will create the menu that is on top of the "Connect 4" board
     // in the game play scene
     public MenuBar createMenu() {
         String menuTextColor = "White";
@@ -430,9 +423,7 @@ public class Main extends Application {
 
         // Game play menu
         MenuItem reverse = new MenuItem("Reverse");
-        reverse.setOnAction(e -> {
-            reverseMove();
-        });
+        reverse.setOnAction(e -> reverseMove());
         gamePlay.getItems().add(reverse);
 
         // Themes menu item buttons
@@ -464,20 +455,17 @@ public class Main extends Application {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("How To Play Connect Four");
             alert.setHeaderText(null);
-            alert.setContentText("It is a two player game where each player takes a turn dropping a checker into a slot (one of the columns) on the game board.\n" +
-                    "That checker will fall down the column and either land on top of another checker or land on the bottom row.\n" +
-                    "To win the game, a player needs to get 4 of their checkers in a vertical, horizontal or diagonal row before the other player");
+            alert.setContentText("""
+                    It is a two player game where each player takes a turn dropping a checker into a slot (one of the columns) on the game board.
+                    That checker will fall down the column and either land on top of another checker or land on the bottom row.
+                    To win the game, a player needs to get 4 of their checkers in a vertical, horizontal or diagonal row before the other player""");
 
             alert.showAndWait();
         });
         MenuItem newGame = new MenuItem("New Game");
-        newGame.setOnAction(e -> {
-            resetGame();
-        });
+        newGame.setOnAction(e -> resetGame());
         MenuItem exit = new MenuItem("Exit");
-        exit.setOnAction(e -> {
-            Platform.exit();
-        });
+        exit.setOnAction(e -> Platform.exit());
         options.getItems().addAll(howToPlay, newGame, exit);
 
         // Add menus to menu bar
@@ -489,7 +477,7 @@ public class Main extends Application {
         return menuBar;
     }
 
-    // This method will just updated the current player after each move
+    // This method updates the current player after each move
     public void updatePlayer() {
         if (player == 0) {
             player = 1;
@@ -497,7 +485,7 @@ public class Main extends Application {
             player = 0;
         }
         playerText.setText(playerString[player]);
-        circleImage.setFill(new ImagePattern(new Image(getClass().getResourceAsStream(themeMap.get(theme)[player]))));
+        circleImage.setFill(new ImagePattern(new Image(Objects.requireNonNull(getClass().getResourceAsStream(themeMap.get(theme)[player])))));
     }
 
     // This method will make a map of all the resources needed for the themes
@@ -532,20 +520,20 @@ public class Main extends Application {
     // This method will update the theme it whatever the user clicks for a new theme
     public void updateTheme() {
         // The circle with the current player
-        circleImage.setFill(new ImagePattern(new Image(getClass().getResourceAsStream(themeMap.get(theme)[player]))));
+        circleImage.setFill(new ImagePattern(new Image(Objects.requireNonNull(getClass().getResourceAsStream(themeMap.get(theme)[player])))));
         // the background of the border
-        borderPane.setStyle("-fx-background-image: url('" + getClass().getResource(themeMap.get(theme)[boardBackgound]).toExternalForm() + "');" +
+        borderPane.setStyle("-fx-background-image: url('" + Objects.requireNonNull(getClass().getResource(themeMap.get(theme)[boardBackground])).toExternalForm() + "');" +
                 "-fx-background-size: stretch;" +
                 "-fx-background-repeat: no-repeat;" +
                 "-fx-background-position: center center;");
-//        borderPane.setStyle("-fx-background-image: url(" + themeMap.get(theme)[boardBackgound] + ");" +
+//        borderPane.setStyle("-fx-background-image: url(" + themeMap.get(theme)[boardBackground] + ");" +
 //                "-fx-background-size: stretch;" +
 //                "-fx-background-repeat: no-repeat;" +
 //                "-fx-background-position: center center;");
         // Updates the theme in the clicked buttons
         map.forEach((k, v) -> {
             if (v.isClicked()) {
-                v.updateTheme(new Image(getClass().getResourceAsStream(themeMap.get(theme)[v.getPlayer()])));
+                v.updateTheme(new Image(Objects.requireNonNull(getClass().getResourceAsStream(themeMap.get(theme)[v.getPlayer()]))));
             }
         });
     }
@@ -555,9 +543,7 @@ public class Main extends Application {
     // and the stack containing the players moves
     public void resetGame() {
         // clear button map
-        map.forEach((k, v) -> {
-            v.clear();
-        });
+        map.forEach((k, v) -> v.clear());
         // clear stack
         stack.clear();
         // clear winning buttons?
@@ -565,7 +551,7 @@ public class Main extends Application {
         //set player back to player 1
         player = 0;
         playerText.setText(playerString[player]);
-        circleImage.setFill(new ImagePattern(new Image(getClass().getResourceAsStream(themeMap.get(theme)[player]))));
+        circleImage.setFill(new ImagePattern(new Image(Objects.requireNonNull(getClass().getResourceAsStream(themeMap.get(theme)[player])))));
         // clear moves text
         movesText.setText("");
     }
