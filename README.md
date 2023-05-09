@@ -77,11 +77,11 @@ The gameplay screen features the game board where players drop checkers into slo
 
 The Game Play menu, accessible from the menu bar, allows players to control the game. One of the options available is the "reverse move" feature, which allows the player to undo the last move made in the game.
 
-![Reverse](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/Reverse.png "Reverse")
+![Reverse](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/Reverse.PNG "Reverse")
 
 The Theme menu provides the player with three different options to change the look and feel of the game, including Star Wars, Rick & Morty, and Dragon Ball Z. The default theme is Star Wars, but players can switch to a different theme at any time. When a new theme is selected, the button icons, background, and player's icon will change to match the new theme.
 
-![Theme](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/Themes.png "Theme")
+![Theme](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/Themes.PNG "Theme")
 
 Below is the Rick & Morty theme, featuring button icons, background, and player's icon inspired by the popular animated series.
 
