@@ -72,16 +72,21 @@ The game's home screen, featuring the Star Wars theme by default, includes two b
 
 ![Home Screen](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/HomeScreen.png "Home Screen")
 
+> Gameplay Screen
 
 The gameplay screen features the game board where players drop checkers into slots and strive to get four in a row, along with an indicator in the top left corner displaying whose turn it is. Additionally, the bottom left corner displays the previous move made. The menu bar, situated at the top of the screen, includes three menus: Game Play, Themes, and Options.
 
 ![Game Screen](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/GridScreenSW.png "Game Screen")
+
+> Menu
 
 The Game Play menu, accessible from the menu bar, allows players to control the game. One of the options available is the "reverse move" feature, which allows the player to undo the last move made in the game.
 
 ![Reverse](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/Reverse.PNG "Reverse")
 
 The Theme menu provides the player with three different options to change the look and feel of the game, including Star Wars, Rick & Morty, and Dragon Ball Z. The default theme is Star Wars, but players can switch to a different theme at any time. When a new theme is selected, the button icons, background, and player's icon will change to match the new theme.
+
+> Themes
 
 ![Theme](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/Themes.PNG "Theme")
 
@@ -96,6 +101,18 @@ Below is the Dragon Ball Z theme, featuring button icons, background, and player
 Below is the Star Wars theme, which serves as the default theme for the game, featuring button icons, background, and player's icon inspired by the legendary space opera.
 
 ![Star Wars](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/GridScreenSW.png "Star Wars")
+
+> Options
+
+The "Options" menu provides additional settings for gameplay, including "How to play" which displays an alert text explaining how to play the game, "New game" which restarts the game, and "Exit" which quits the game application.
+
+![Options](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/Options.PNG "Options")
+
+> Play
+
+To make a move in Connect Four, simply click on a valid spot on the game board during your turn to drop your checker into the corresponding slot.
+
+![Play](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/GridScreenSW.png "Play")
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
