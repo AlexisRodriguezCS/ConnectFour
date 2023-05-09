@@ -75,6 +75,26 @@ The gameplay screen features the game board where players drop checkers into slo
 
 ![Game Screen](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/GridScreenSW.png "Game Screen")
 
+The Game Play menu, accessible from the menu bar, allows players to control the game. One of the options available is the "reverse move" feature, which allows the player to undo the last move made in the game.
+
+![Reverse](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/Reverse.png "Reverse")
+
+The Theme menu provides the player with three different options to change the look and feel of the game, including Star Wars, Rick & Morty, and Dragon Ball Z. The default theme is Star Wars, but players can switch to a different theme at any time. When a new theme is selected, the button icons, background, and player's icon will change to match the new theme.
+
+![Theme](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/Themes.png "Theme")
+
+Below is the Rick & Morty theme, featuring button icons, background, and player's icon inspired by the popular animated series.
+
+![Rick & Morty](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/GridScreenRM.png "Rick & Morty")
+
+Below is the Dragon Ball Z theme, featuring button icons, background, and player's icon inspired by the iconic anime and manga franchise.
+
+![Dragon Ball Z](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/GridScreenDBZ.png "Dragon Ball Z")
+
+Below is the Star Wars theme, which serves as the default theme for the game, featuring button icons, background, and player's icon inspired by the legendary space opera.
+
+![Star Wars](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/GridScreenSW.png "Star Wars")
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
