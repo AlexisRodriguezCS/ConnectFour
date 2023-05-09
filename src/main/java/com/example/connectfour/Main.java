@@ -75,6 +75,7 @@ public class Main extends Application {
         // This HashMap will hold all the scenes
         sceneMap = new HashMap<>();
         primaryStage.setTitle("Connect Four");
+        primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("Icon.png"))));
 
         //this handler is used by all the game buttons
         myHandler = new EventHandler<>() {
@@ -229,7 +230,7 @@ public class Main extends Application {
         // Add centerBox to a border pane
         BorderPane borderPane = new BorderPane();
         borderPane.setCenter(centerBox);
-        borderPane.setStyle("-fx-background-image: url('https://cutewallpaper.org/21/star-wars-starfield-background/Best-Moving-Stars-GIFs-Gfycat.gif');");
+        borderPane.setStyle("-fx-background-image: url('" + Objects.requireNonNull(getClass().getResource("HomeScreen.gif")).toExternalForm() + "');");
 
 
         // Exit menu item closes the game
