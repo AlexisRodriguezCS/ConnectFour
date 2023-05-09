@@ -23,9 +23,9 @@ The game board is represented by a GridPane, a JavaFX layout container that arra
 
 The game's GUI includes a welcome screen and a gameplay screen. The welcome screen displays a brief description of the game and a "Start Game" button, which takes the player to the gameplay screen. The gameplay screen consists of a menu bar, a game board, an area displaying whose turn it is, and a history of moves made.
 
-The menu bar has three menus: Game Play, Themes, and Options. The Game Play menu provides options for the players to control the game. For instance, there is a "reverse move" option to undo the last move, and players can also choose to start a new game or exit the game. The Themes menu provides the player with the option to choose from three different themes, such as Star Wars, Dragon Ball Z, and Rick & Morty. The Options menu provides additional settings for how to play, including the ability to adjust the difficulty level.
+The menu bar has three menus: Game Play, Themes, and Options. The Game Play menu provides options for the players to control the game. For instance, there is a "reverse move" option to undo the last move, and players can also choose to start a new game or exit the game. The Themes menu provides the player with the option to choose from three different themes, such as Star Wars, Dragon Ball Z, and Rick & Morty. The Options menu provides additional settings for how to play, start a new game , and including the ability to quit the game.
 
-The implementation of this game requires a comprehensive understanding of JavaFX, event handling, and game logic. The program should be robust, user-friendly, and visually appealing. Additionally, proper error handling, input validation, and edge cases should be considered in the implementation to ensure a smooth and enjoyable gaming experience.
+The implementation of this game requires a comprehensive understanding of JavaFX, event handling, and game logic. Additionally, proper error handling, input validation, and edge cases should be considered in the implementation to ensure a smooth and enjoyable gaming experience.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
