@@ -66,6 +66,8 @@ $ Right click on Main and select Run 'Main.main()'
 <a name="usage"></a>
 ## Usage
 
+### Home Screen
+
 The game's home screen, featuring the Star Wars theme by default, includes two buttons that allow the player to start the game and exit the application.
 
 ![Home Screen](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/HomeScreen.png "Home Screen")
