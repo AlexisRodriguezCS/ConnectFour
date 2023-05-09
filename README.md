@@ -68,7 +68,12 @@ $ Right click on Main and select Run 'Main.main()'
 
 The game's home screen, featuring the Star Wars theme by default, includes two buttons that allow the player to start the game and exit the application.
 
-![Home Screen](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/HomeScreen.png)
+![Home Screen](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/HomeScreen.png "Home Screen")
+
+
+The gameplay screen features the game board where players drop checkers into slots and strive to get four in a row, along with an indicator in the top left corner displaying whose turn it is. Additionally, the bottom left corner displays the previous move made. The menu bar, situated at the top of the screen, includes three menus: Game Play, Themes, and Options.
+
+![Game Screen](https://raw.githubusercontent.com/AlexisRodriguezCS/ConnectFour/main/Images/GridScreenSW.png "Game Screen")
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
