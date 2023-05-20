@@ -80,7 +80,6 @@ public class Main extends Application {
         //this handler is used by all the game buttons
         myHandler = new EventHandler<>() {
             public void handle(ActionEvent e) {
-                //System.out.println("Clicked a button");
                 GameButton temp = (GameButton) e.getSource();
                 // Checks if button below has been clicked or if button is on lower bound
                 if ((temp.getY() == 5) || map.get(temp.getID() + 1).isClicked()) {
@@ -283,8 +282,7 @@ public class Main extends Application {
         borderPane.setStyle("-fx-background-image: url('" + Objects.requireNonNull(getClass().getResource(themeMap.get(theme)[boardBackground])).toExternalForm() + "');"
                 + "-fx-background-size: cover;"
                 + "-fx-background-position: center center;");
-
-        //Scene scene = new Scene(borderPane, WIDTH, HEIGHT);
+        
         return new Scene(borderPane, WIDTH, HEIGHT);
     }
     // This scene is called when someone wins or the game
@@ -297,9 +295,6 @@ public class Main extends Application {
         winBorderPane.setStyle("-fx-background-image: url('" + Objects.requireNonNull(getClass().getResource(themeMap.get(theme)[winingBackground])).toExternalForm() + "');"
                 + "-fx-background-repeat: no-repeat;"
                 + "-fx-background-position: center center;");
-//        winBorderPane.setStyle("-fx-background-image: url(" + themeMap.get(theme)[winingBackground] + ");" + "-fx-background-size: stretch;" +
-//                "-fx-background-repeat: no-repeat;" +
-//                "-fx-background-position: center center;");
 
         //  A message announcing who won the game or if there was a tie game
         Text message = new Text("");
@@ -527,10 +522,6 @@ public class Main extends Application {
                 "-fx-background-size: stretch;" +
                 "-fx-background-repeat: no-repeat;" +
                 "-fx-background-position: center center;");
-//        borderPane.setStyle("-fx-background-image: url(" + themeMap.get(theme)[boardBackground] + ");" +
-//                "-fx-background-size: stretch;" +
-//                "-fx-background-repeat: no-repeat;" +
-//                "-fx-background-position: center center;");
         // Updates the theme in the clicked buttons
         map.forEach((k, v) -> {
             if (v.isClicked()) {
