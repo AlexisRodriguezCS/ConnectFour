@@ -1,3 +1,11 @@
+/***************************************************************
+ * File: Main.java
+ * Purpose: Represents the main class for the Connect Four game.
+ *          It contains the graphical user interface and game logic.
+ * Author: Alexis Rodriguez
+ ***************************************************************/
+
+// Import statements
 package com.example.connectfour;
 
 import java.util.*;
