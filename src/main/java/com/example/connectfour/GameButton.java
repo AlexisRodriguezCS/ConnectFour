@@ -1,3 +1,10 @@
+/***************************************************************
+ * File: GameButton.java
+ * Purpose: Represents a custom button used in the Connect Four game.
+ * Author: Alexis Rodriguez
+ ***************************************************************/
+
+// Import statements
 package com.example.connectfour;
 
 import javafx.scene.control.Button;
